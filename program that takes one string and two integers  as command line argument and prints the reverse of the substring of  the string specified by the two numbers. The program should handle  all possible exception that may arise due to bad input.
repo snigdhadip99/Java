@@ -1,0 +1,47 @@
+public class ReverseString
+{
+ public static void main(String args[])
+ {
+ int start=-1, end=-1; //i=0;
+ try
+ {
+ start=Integer.parseInt(args[1]);
+ end=Integer.parseInt(args[2]);
+ String subStr=args[0].substring(start, end);
+ StringBuffer sb=new StringBuffer(subStr);
+ 
+ sb.reverse();
+ 
+ System.out.println("Original String : "+args[0]);
+ System.out.println("Original Substring : "+subStr);
+ System.out.println("Reversed Substring : "+sb);
+ }
+ catch(ArrayIndexOutOfBoundsException e)
+ {
+ System.out.println("ArrayIndexOutOfBoundsException\nInvalid Input!! Enter 
+String, startIndex, endIndex separated by space.");
+ }
+ catch(NumberFormatException e)
+ {
+ if(start<0)
+ System.out.println("NumberFormatException\nInvalid Input for Start 
+Index!! Enter a number");
+ else
+ System.out.println("NumberFormatException\nInvalid Input for End 
+Index!! Enter a number");
+ }
+ catch(StringIndexOutOfBoundsException e)
+ {
+ if(start<0 || end<0)
+ System.out.println("StringIndexOutOfBoundsException\nInvalid 
+Input!!Start Index must be greater than -1");
+ else if(start>args[0].length() || end>args[0].length())
+ System.out.println("StringIndexOutOfBoundsException\nInvalid 
+Input!!End Index must be less than "+args[0].length());
+ }
+ catch(Exception e)
+ {
+ System.out.println("Exception\nInvalid Input!!");
+ }
+ }
+}
