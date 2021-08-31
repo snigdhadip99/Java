@@ -1,0 +1,29 @@
+public class Student {
+int rollno;
+String name;
+String stream;
+String college;
+void printinfo() {
+System.out.println("roll no is "+ rollno);
+System.out.println("name is "+ name);
+System.out.println("stream is " + stream);
+System.out.println("college is "+ college);
+}
+public static void main(String[] args) {
+ 
+Student s1=new Student();
+Student s2=new Student();
+ System.out.println("Information of student s1");
+s1.rollno=1;
+s1.name="Rahul";
+s1.stream="Arts";
+s1.college="xyz";
+ s1.printinfo();
+System.out.println("Information of student s2");
+s2.rollno=7;
+s2.name="Rik";
+s2.stream="commerce";
+s2.college="abc";
+s2.printinfo();
+}
+}
