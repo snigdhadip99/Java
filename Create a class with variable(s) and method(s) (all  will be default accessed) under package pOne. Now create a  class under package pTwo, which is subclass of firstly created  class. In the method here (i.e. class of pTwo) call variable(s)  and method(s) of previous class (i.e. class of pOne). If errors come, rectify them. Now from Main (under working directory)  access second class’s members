@@ -1,0 +1,59 @@
+package pOne;
+public class Super {
+ //member variables
+ private int iamPrivate = 1;
+ int iamPackageOne = 2; //package access
+ protected int iamProtected = 3;
+ public int iamPublic = 4;
+ //member methods
+ private void privateMethod() {
+ System.out.println("Private Method can be called");
+ }
+ void packageMethod() { //package access
+ System.out.println("Package One Method can be called");
+ }
+ protected void protectedMethod() {
+ System.out.println("Protected Method can be called");
+ }
+ public void publicMethod() {
+ System.out.println("Public Method can be called");
+ }
+ public static void main(String[] args) {
+ Super a = new Super();
+ System.out.println("\tPackage One\n\tSuper Class\n");
+ System.out.println("Access using Super instance from Super\n");
+ a.privateMethod(); //legal
+ a.packageMethod(); //legal
+ a.protectedMethod(); //legal
+ a.publicMethod(); //legal
+ System.out.println("Variable iamPrivate: " + a.iamPrivate); //legal
+ System.out.println("Variable iamPackage one: "+ a.iamPackageOne); //legal
+ System.out.println("Variable iamProtected: "+ a.iamProtected); //legal
+ System.out.println("Variable iamPublic: "+ a.iamPublic); //legal
+ }
+}
+package pTwo;
+import pOne.*;
+public class Sub extends Super {
+ public static void main(String[] args) {
+ Super a = new Super();
+ System.out.println("\tPackage Two\n\tSub Class\n");
+ System.out.println("Access using Super instance(Superclass) from 
+Sub(Subclass)\n");
+ //a.privateMethod(); //error!! illegal
+ //a.packageMethod(); //error!! illegal
+ //a.protectedMethod(); //error!! illegal
+ a.publicMethod(); //no error!! legal
+ //System.out.println("Variable iamPrivate: "+ a.iamPrivate); // error!! illegal
+ //System.out.println("Variable iamPackage: "+ a.iamPackageOne); // error!! 
+illegal
+ //System.out.println("Variable iamProtected: "+ a.iamProtected); // error!! 
+illegal
+ System.out.println("Variable iamPublic: "+ a.iamPublic); // no error!! legal
+ System.out.println("\nAccess using Sub instance from Sub\n");
+ Sub b = new Sub();
+ b.protectedMethod(); //no error!! legal
+ System.out.println("Variable iamProtected: "+ b.iamProtected); //no error!! 
+legal
+ }
+}
