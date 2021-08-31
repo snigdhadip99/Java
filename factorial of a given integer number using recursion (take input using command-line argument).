@@ -1,0 +1,14 @@
+import java.util.*;
+public class Factorial {
+int FindFactorial(int a) {
+if(a==0) 
+return 1;
+else
+return (a*FindFactorial(a-1));
+}
+public static void main(String[] args) {
+ int a=Integer.parseInt(args[0]);
+ Factorial f=new Factorial();
+ System.out.println("the factorial is" + " " + f.FindFactorial(a));
+}
+}
