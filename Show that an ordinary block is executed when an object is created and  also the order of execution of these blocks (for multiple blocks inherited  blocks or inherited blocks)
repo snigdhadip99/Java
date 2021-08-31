@@ -1,0 +1,42 @@
+class Block1
+{
+ {
+ System.out.println("Inside the block1 of Block1\n");
+ }
+ {
+ System.out.println("Inside the block2 of Block1\n");
+ }
+}
+class Block2 extends Block1
+{
+ {
+ System.out.println("Inside the block1 of 
+Block2\n");
+ }
+ {
+ System.out.println("Inside the block2 of Block2\n");
+ }
+}
+class multi_block extends Block2
+{
+ {
+ System.out.println("Inside the block1 of 
+multi_block\n");
+ }
+ {
+ System.out.println("Inside the block2 of 
+multi_block\n");
+ }
+ public static void main(String[] args)
+ {
+ System.out.println("Block1 Object :");
+ System.out.println("----------------------");
+ Block1 b1=new Block1();
+ System.out.println("Block2 Object :");
+ System.out.println("----------------------");
+ Block2 b2=new Block2();
+ System.out.println("Multi_block Object :");
+ System.out.println("----------------------");
+ multi_block m=new multi_block();
+ }
+}
