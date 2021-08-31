@@ -1,0 +1,20 @@
+public class Employee {
+static void validate(double salary)throws PayOutOfBoundsException{ 
+ if(salary<10000) 
+ throw new PayOutOfBoundsException("salary is less than 10,000"); 
+ else 
+ System.out.println("response recorded"); 
+ } 
+public static void main(String[] args) {
+try {
+validate(9000);
+}catch(Exception x) {
+System.out.println("exception occured " + x);
+}
+}
+}
+class PayOutOfBoundsException extends Exception{ 
+PayOutOfBoundsException(String s){ 
+ super(s); 
+} 
+}
