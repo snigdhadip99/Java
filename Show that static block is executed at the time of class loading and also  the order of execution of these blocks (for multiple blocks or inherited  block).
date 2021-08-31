@@ -1,0 +1,46 @@
+class One
+{
+ static
+ {
+ System.out.println("Inside the static block1 
+of One\n");
+ }
+ {
+ System.out.println("Inside the block2 of 
+One\n");
+ }
+}
+class Two extends One
+{
+ static{
+ System.out.println("Inside the static block1 
+of Two\n");
+ }
+ {
+ System.out.println("Inside the block2 of 
+Two\n");
+ }
+}
+class Block extends Two
+{
+ static{
+ System.out.println("Inside the static block1 
+of Block\n");
+ }
+ {
+ System.out.println("Inside the block2 of 
+Block\n");
+ }
+ public static void main(String[] args)
+ {
+ System.out.println("One Object :");
+ System.out.println("----------------------");
+ One b1=new One();
+ System.out.println("Two Object :");
+ System.out.println("----------------------");
+ Two b2=new Two();
+ System.out.println("Block Object :");
+ System.out.println("----------------------");
+Block m=new Block();
+ }
+}
