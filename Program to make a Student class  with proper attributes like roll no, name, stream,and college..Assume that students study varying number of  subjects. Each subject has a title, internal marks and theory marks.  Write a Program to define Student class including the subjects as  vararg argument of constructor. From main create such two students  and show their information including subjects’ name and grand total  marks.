@@ -1,0 +1,76 @@
+import java.util.*;
+public class Student {
+int rollno;
+ String name;
+ String stream;
+ String college;
+ int n;
+ int internal[]=new int[10];
+ int theory[]=new int[10];
+ String sub[]=new String[n];
+ 
+ Scanner sc = new Scanner(System.in);
+ 
+ Student(String...subject) {
+ this.n=subject.length;
+ this.sub=subject;
+ for(int i=0;i<n;i++) {
+ System.out.println("enter the internal marks for " + sub[i]);
+ this.internal[i]=sc.nextInt();
+ } 
+ for(int k=0;k<n;k++) {
+ System.out.println("enter the theory marks for "+ sub[k]);
+ this.theory[k]=sc.nextInt();
+ }
+ }
+ void total(int inter,int theo)
+ { 
+ int totalmarks=inter+theo;
+ System.out.println("total Marks(internal+theory) is "+totalmarks);
+ }
+ void calculategrandtotal() {
+ int t=0;
+ for(int k=0;k<n;k++) {
+ t= t+ internal[k]+theory[k];
+ 
+ }
+ System.out.println("the grand total of all the subjects is: " + t);
+ }
+ 
+ void printinfo() {
+ System.out.println("roll no is "+ rollno);
+ System.out.println("name is "+ name);
+ System.out.println("stream is " + stream);
+ System.out.println("college is "+ college);
+ for(int i=0;i<n;i++)
+ {
+ System.out.println(" Subject name :"+sub[i]);
+ total(internal[i],theory[i]);
+ }
+ calculategrandtotal();
+ }
+ 
+ 
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+System.out.println("---for student s1----");
+Student s1=new Student("history","english","hindi");
+ s1.rollno=1;
+ s1.name="Rahul";
+ s1.stream="Arts";
+ s1.college="xyz";
+ System.out.println("details of student s1");
+ s1.printinfo();
+ 
+ System.out.println("---for student s2----");
+ Student s2=new Student("maths","chemistry","physics","statistics");
+ s2.rollno=7;
+ s2.name="Rik";
+ s2.stream="science";
+ s2.college="abc";
+ System.out.println("details of student s2");
+ s2.printinfo();
+ 
+ 
+}
+}
