@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.lang.*;
+public class inventor
+{
+ public static void main(String[] args)
+ {
+ int k=0;
+ String str="James Gosling";
+ boolean flag=false;
+ String str1=new String();
+ while(k!=3)
+ {
+ System.out.println("Who is the inventer of Java?");
+ Scanner sc = new Scanner(System.in);
+ str1=sc.nextLine();
+ flag=str.equalsIgnoreCase(str1);
+ if(flag)
+ {
+ System.out.println("Good");
+ return;
+ }
+ else
+ {
+ k++;
+ System.out.println("Try Again......");
+ }
+ }
+ if(k==3)
+ System.out.println("Correct Answer:James Gosling");
+ }
+}
