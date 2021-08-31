@@ -1,0 +1,36 @@
+public class Test {
+int age;
+Test(){
+}
+Test(int age) {
+this.age=age;
+}
+ void updateage(Test t1) { //using same class's object
+ this.age=this.age+t1.age;
+ }
+ void changeage(TestTwo t2) { //using different class's object
+ this.age=this.age+t2.age;
+ }
+ void printinfo() {
+ System.out.println("Age is " + age);
+ }
+public static void main(String[] args) {
+Test t1=new Test(10);
+Test ts=new Test(5);
+ts.printinfo();
+ts.updateage(t1);
+System.out.print("when same class's object is passed,updated ");
+ts.printinfo();
+TestTwo t2=new TestTwo(20);
+ts.changeage(t2);
+System.out.print("when different class's object is passed,updated 
+");
+ ts.printinfo();
+}
+}
+class TestTwo{
+int age;
+TestTwo(int age){
+this.age=age;
+}
+}
