@@ -1,0 +1,17 @@
+public class assignmenttwopoint1 {
+public static void main(String[] args) {
+ Rectangle r=new Rectangle(10,20);
+ r.printarea();
+}
+}
+class Rectangle{
+int length;
+int breadth;
+Rectangle(int l,int b){
+this.length=l;
+this.breadth=b;
+}
+void printarea() {
+System.out.println("area is "+ length*breadth);
+}
+}
