@@ -1,0 +1,94 @@
+import java.util.*;
+public class BankAccount {
+ String DepositorName;
+ String DepositorAddress;
+ int AccountNumber;
+ double Balance;
+ 
+ Scanner sc=new Scanner(System.in); 
+ 
+ 
+ void OpenAccount() {
+ System.out.println("----opening account-----");
+ System.out.println("Enter the name of depositor");
+ String n=sc.nextLine();
+ System.out.println("enter the depositor's address");
+ String a=sc.nextLine();
+ System.out.println("enter the account number");
+ int an=sc.nextInt();
+ System.out.println("enter the balance");
+ double b=sc.nextDouble();
+ sc.nextLine();
+ this.DepositorName=n;
+ this.DepositorAddress=a;
+ this.AccountNumber=an;
+ this.Balance=b;
+ }
+ void DepositMoney() {
+ System.out.println("----Depositing money-----");
+ System.out.println("enter the name associated with the account");
+ String n=sc.nextLine();
+ System.out.println("enter the address associated with the account");
+ String a=sc.nextLine();
+ System.out.println("enter the account number");
+ int an=sc.nextInt();
+ 
+ if(an==AccountNumber && n.equals(DepositorName) && 
+a.equals(DepositorAddress)) {
+ System.out.println("enter the amount you want to deposit");
+ double amt=sc.nextDouble();
+ Balance=amt+Balance;
+ System.out.println("updated balance is"+ Balance);
+ }
+ else {
+ System.out.println("invalid details entered");
+ }
+ }
+ 
+ void WithdrawMoney() {
+ System.out.println("---withdrawing money-----");
+ System.out.println("enter the account number");
+ int an=sc.nextInt();
+ sc.nextLine();
+ System.out.println("enter the name associated with the account");
+ String n=sc.nextLine();
+ System.out.println("enter the address associated with the account");
+ String a=sc.nextLine();
+ if(an==AccountNumber && n.equals(DepositorName) && 
+a.equals(DepositorAddress)) {
+ System.out.println("enter the amount you want to withdraw");
+ double amt=sc.nextDouble();
+ if(amt>Balance) {
+ System.out.println("you don't have sufficient balance");
+ System.out.println("your current balance is "+ Balance);
+ }
+ else {
+ Balance=Balance-amt;
+ System.out.println("your new balance is" + Balance);
+ }
+ 
+ }
+ else {
+ System.out.println("invalid details entered");
+ }
+ }
+ 
+ void ShowInfo() {
+ System.out.println("----print account holder's details-----");
+ System.out.println("the depositor's name is "+ DepositorName);
+ System.out.println(" the depositor's address is " + DepositorAddress);
+ System.out.println("the balance is "+ Balance);
+ }
+ 
+ 
+public static void main(String[] args) {
+BankAccount c1=new BankAccount();
+c1.OpenAccount();
+ c1.DepositMoney();
+c1.WithdrawMoney();
+c1.ShowInfo();
+ 
+ 
+ 
+}
+}
