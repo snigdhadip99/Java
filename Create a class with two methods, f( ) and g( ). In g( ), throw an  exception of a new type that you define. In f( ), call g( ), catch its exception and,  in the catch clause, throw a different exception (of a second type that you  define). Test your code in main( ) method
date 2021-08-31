@@ -1,0 +1,35 @@
+class MyException extends Exception{
+public MyException(String msg)
+ {
+ super(msg);
+ }
+}
+class MyExcep extends Exception
+{
+ public MyExcep(String str)
+ {
+ super(str);
+ }
+}
+public class Inheriting{
+public static void g() throws MyException
+ { 
+ throw new MyException(" Exception Originated in g()");
+ }
+ public static void f() throws MyExcep
+ {
+ try{
+ g();}
+ catch(MyException e){
+ System.out.println(e.getMessage());
+ throw new MyExcep("Originated in f()"); 
+ }
+ }
+ public static void main(String[] args) throws MyExcep
+ {
+ try {
+ f();
+ } catch (MyExcep e) {
+ // TODO Auto-generated catch block
+ e.printStackTrace(); }
+}
