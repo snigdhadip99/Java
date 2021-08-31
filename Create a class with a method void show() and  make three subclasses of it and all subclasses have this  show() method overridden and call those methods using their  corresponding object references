@@ -1,0 +1,30 @@
+public class Shape {
+void show() {
+System.out.println("hi! I'm shape");
+}
+public static void main(String[] args) {
+Shape sh=new Shape();
+sh.show();
+Rectangle r=new Rectangle();
+r.show();
+Circle c=new Circle();
+c.show();
+Square s=new Square();
+s.show();
+}
+}
+class Rectangle extends Shape{
+void show() {
+System.out.println("hi! I'm rectangle");
+}
+}
+class Circle extends Shape{
+void show() {
+System.out.println("hi! I'm circle");
+}
+}
+class Square extends Shape{
+void show() {
+System.out.println("hi!I'm square");
+}
+}
