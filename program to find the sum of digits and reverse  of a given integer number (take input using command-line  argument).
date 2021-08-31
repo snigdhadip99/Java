@@ -1,0 +1,31 @@
+public class SumOfDigits {
+int number;
+SumOfDigits(int number){
+this.number=number;
+}
+void sumofdigits() {
+int sum=0;
+int newno=number;
+while(newno>0) {
+int x=newno%10;
+sum=sum+x;
+newno=newno/10;
+}
+System.out.println("the sum of digits:" + sum);
+}
+void reverse() {
+int y=0;
+System.out.println("the reverse is:");
+while(number>0) {
+y=number%10;
+System.out.print(y);
+number=number/10;
+}
+}
+public static void main(String[] args) {
+ int h=Integer.parseInt(args[0]);
+ SumOfDigits s=new SumOfDigits(h);
+ s.sumofdigits();
+ s.reverse();
+}
+}
