@@ -1,0 +1,135 @@
+mport java.lang.Math;
+import java.util.*;
+public class Account {
+Scanner sc=new Scanner(System.in);
+String customer_name;
+int account_no;
+String account_type;
+double balance;
+ Account(){
+ System.out.println("enter customer name: ");
+ this.customer_name=sc.next();
+ System.out.println("Enter account number");
+ this.account_no=sc.nextInt();
+ System.out.println("enter the balance");
+ this.balance=sc.nextDouble();
+ }
+ void displaybalance() {
+ System.out.println("name associated with account :" + customer_name);
+ System.out.println("the balance is: "+balance);
+ }
+public void withdrawmoney() {
+ System.out.println("enter the amount you want to withdraw");
+ double amt=sc.nextDouble();
+ if(amt>balance) {
+ System.out.println("you do not have sufficient balance");
+ System.out.println("the balance is "+balance);
+ }else {
+ balance=balance-amt;
+ System.out.println("the update balance is "+balance);
+ }
+ 
+ }
+public void depositmoney() {
+ System.out.println("enter the amount you want to deposit");
+ double amt=sc.nextDouble();
+ balance=balance+amt;
+ System.out.println("the updated balance after deposit is "+balance);
+ }
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+Scanner sc=new Scanner(System.in);
+System.out.println("----savings account object----");
+ Savn_Acct s1=new Savn_Acct("savings");
+ System.out.println("do want to calculate interest? If yes enter 1 else enter any number");
+ int nn=sc.nextInt();
+ if(nn==1) {
+ s1.calculateinterest();
+ s1.displaybalance(); }
+ else {
+ s1.displaybalance(); }
+ System.out.println("----current account object----");
+ Curr_Acct c1=new Curr_Acct("current");
+ c1.displaybalance();
+ 
+}
+}
+class Savn_Acct extends Account{
+Scanner sc=new Scanner(System.in);
+double principal;
+float rate=10;
+int n;
+float year;
+Savn_Acct(String type){
+super();
+this.account_type=type;
+System.out.println("do you want to deposit money");
+String y=sc.next();
+if(y.equals("yes") ||y.equals("Yes")) {
+super.depositmoney();
+}else
+{ System.out.println("thank you for your response");
+}
+System.out.println("do you want to withdraw money");
+String yy=sc.next();
+if(yy.equals("yes")|| yy.equals("Yes")) {
+super.withdrawmoney();
+}else
+{ System.out.println("thank you for your response");
+}
+}
+void calculateinterest(){
+System.out.println("----Coumpound Interest calculation----");
+System.out.println("enter principal amount");
+this.principal=sc.nextDouble();
+if(principal>balance) {
+System.out.println("insufficient balance");
+}else {
+balance=balance-principal;
+System.out.println("enter the number of times that interest is compounded");
+int no=sc.nextInt();
+this.n=no;
+System.out.println("enter the number of years");
+float y=sc.nextFloat();
+this.year=y;
+calculatedinterestamount();
+}
+}
+ void calculatedinterestamount() {
+ double amt=Math.pow((1+(rate/(n*100))),(n*year));
+ amt=(amt*principal);
+ System.out.println("the amount after interest is: "+amt);
+ balance=balance+amt;
+ System.out.println("the total balance in your account is "+ balance);
+ }
+ 
+}
+class Curr_Acct extends Account{
+int penalty;
+Curr_Acct(String type){
+super();
+this.account_type=type;
+System.out.println("don't forget to collect your cheque book");
+System.out.println("do you want to deposit money");
+String y=sc.next();
+if(y.equals("yes") ||y.equals("Yes")) {
+super.depositmoney();
+}else
+{ System.out.println("thank you for your response");
+}
+System.out.println("do you want to withdraw money");
+String yy=sc.next();
+if(yy.equals("yes")|| yy.equals("Yes")) {
+super.withdrawmoney();
+}else
+{ System.out.println("thank you for your response");
+}
+if(balance<1000) {
+this.penalty=100;
+balance=balance-penalty;
+System.out.println("not enough balance. Rs 100 is deducted for not maintaining 
+enough balance ");
+System.out.println("current balance is "+ balance);
+}
+}
+}
