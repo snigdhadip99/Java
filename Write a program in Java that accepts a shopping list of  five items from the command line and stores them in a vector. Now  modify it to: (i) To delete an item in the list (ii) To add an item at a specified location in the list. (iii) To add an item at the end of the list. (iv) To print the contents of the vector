@@ -1,0 +1,31 @@
+import java.util.*;
+public class ShoppingList {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+Vector<String> shoppinglist=new Vector<>();
+for(int i=0;i<5;i++) {
+shoppinglist.add(args[i]);
+}
+System.out.println("The elements that you entered are : ");
+for(String ss:shoppinglist) {
+System.out.println(ss);
+}
+System.out.println("enter the element you want to delete");
+String del=sc.next();
+shoppinglist.removeElement(del);
+System.out.println("enter the location where you want to add an 
+element");
+int n=sc.nextInt();
+System.out.println("enter the element you wish to enter");
+String no=sc.next();
+shoppinglist.add(n, no);
+System.out.println("enter the element you wish to enter at the 
+end");
+String no1=sc.next();
+shoppinglist.add(no1);
+System.out.println(" the final elements in the vector are : ");
+for(String ss:shoppinglist) {
+System.out.println(ss);
+}
+}
+}
