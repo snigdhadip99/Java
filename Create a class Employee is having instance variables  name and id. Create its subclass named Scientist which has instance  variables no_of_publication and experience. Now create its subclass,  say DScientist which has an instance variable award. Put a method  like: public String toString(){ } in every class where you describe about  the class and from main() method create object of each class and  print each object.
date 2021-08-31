@@ -1,0 +1,56 @@
+import java.util.*;
+public class Employee {
+Scanner sc=new Scanner(System.in);
+String name;
+int id;
+Employee(){
+System.out.println("enter name");
+this.name=sc.next();
+System.out.println("enter id");
+this.id=sc.nextInt();
+}
+public String toString()
+ {
+return "the name is " + name + ". Id is " + id;
+ }
+public static void main(String[] args) {
+Employee e=new Employee();
+System.out.println(e);
+Scientist s=new Scientist();
+System.out.println(s);
+DScientist d=new DScientist();
+System.out.println(d);
+}
+}
+class Scientist extends Employee{
+Scanner sc=new Scanner(System.in);
+int no_of_publication;
+float experience;
+Scientist(){
+super();
+System.out.println("enter no of publications");
+this.no_of_publication=sc.nextInt();
+System.out.println("enter experience");
+this.experience=sc.nextFloat();
+}
+public String toString()
+ {
+return "the name is " + name + ". Id is " + id + ". Number of 
+publication(s) " + no_of_publication + ". Experience: " + experience ;
+ }
+}
+class DScientist extends Scientist{
+Scanner sc=new Scanner(System.in);
+String award;
+DScientist(){
+super();
+System.out.println("enter award received");
+this.award=sc.next();
+}
+public String toString()
+ {
+return "the name is " + name + ". Id is " + id + ". No of 
+publication(s) " + no_of_publication + ". Experience: " + experience +". Awards 
+received: " + award ;
+ }
+}
