@@ -1,0 +1,72 @@
+import java.util.*;
+public class Matrix {
+// Function to ADD
+static void addmat(int first[][],int second[][],int m,int n,int sum[][]) {
+int c,d;
+for ( c = 0; c < m; c++) {
+ for ( d = 0; d < n; d++)
+ sum[c][d] = first[c][d] + second[c][d];
+}
+System.out.println("matrix addition result:");
+for (int i = 0; i < m; i++) {
+for (int j = 0; j < n; j++)
+System.out.print(sum[i][j] + " ");
+System.out.println();
+}
+}
+// Function to SUBTRACT
+static void submat(int first[][],int second[][],int m,int n,int sub[][]) {
+int c,d;
+for ( c = 0; c < m; c++) {
+ for ( d = 0; d < n; d++)
+ sub[c][d] = first[c][d] - second[c][d];
+}
+System.out.println("matrix subtraction result:");
+for (int i = 0; i < m; i++) {
+for (int j = 0; j < n; j++)
+System.out.print(sub[i][j] + " ");
+System.out.println();
+}
+}
+// Function to MULTIPLY
+static void mulmat(int first[][],int second[][],int m,int n,int mul[][]) {
+ for (int i = 0; i < m; i++) {
+ for (int j = 0; j < n; j++) {
+ for (int k = 0; k < m; k++)
+ mul[i][j] += first[i][k] * second[k][j];
+ }
+ }
+System.out.println("matrix multiplication result:");
+ for (int i = 0; i < m; i++) {
+for (int j = 0; j < n; j++)
+System.out.print(mul[i][j] + " ");
+System.out.println();
+}
+}
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+int m, n, c, d;
+ Scanner in = new Scanner(System.in);
+ System.out.println("Enter the number of rows and columns of matrix");
+ m = in.nextInt();
+ n = in.nextInt();
+ int first[][] = new int[m][n];
+ int second[][] = new int[m][n];
+ int sum[][] = new int[m][n];
+ int sub[][]=new int[m][n];
+ int mul[][]=new int[m][n];
+ 
+ 
+ System.out.println("Enter the elements of first matrix");
+ for (c = 0; c < m; c++)
+ for (d = 0; d < n; d++)
+ first[c][d] = in.nextInt();
+ System.out.println("Enter the elements of second matrix");
+ for (c = 0 ; c < m; c++)
+ for (d = 0 ; d < n; d++)
+ second[c][d] = in.nextInt();
+ addmat(first,second,m,n,sum);
+ submat(first,second,m,n,sub);
+ mulmat(first,second,m,n,mul);
+}
+}
