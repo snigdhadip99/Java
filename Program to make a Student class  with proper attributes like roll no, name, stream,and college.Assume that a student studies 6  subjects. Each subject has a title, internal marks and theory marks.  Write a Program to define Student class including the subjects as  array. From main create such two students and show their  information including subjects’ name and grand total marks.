@@ -1,0 +1,95 @@
+import java.util.*;
+public class Student {
+int rollno;
+String name;
+ String stream;
+ String college;
+String sub1[]=new String[3];
+String sub2[]=new String[3];
+String sub3[]=new String[3];
+String sub4[]=new String[3];
+String sub5[]=new String[3];
+String sub6[]=new String[3];
+ void totakevalues() {
+System.out.println("for subject 1");
+takevalues(sub1);
+System.out.println("for subject 2");
+takevalues(sub2);
+System.out.println("for subject 3");
+takevalues(sub3);
+System.out.println("for subject 4");
+takevalues(sub4);
+System.out.println("for subject 5");
+takevalues(sub5);
+System.out.println("for subject 6");
+takevalues(sub6);
+}
+ void takevalues(String str[]) {
+ Scanner sc=new Scanner(System.in);
+ System.out.println("enter subject name");
+ str[0]=sc.next();
+ System.out.println(" enter internal marks ");
+ str[1]=sc.next();
+ System.out.println("enter theory marks");
+ str[2]=sc.next();
+ }
+ 
+ void calculatetotal(String ss[]) {
+ int total=Integer.parseInt(ss[1])+ Integer.parseInt(ss[2]);
+ System.out.println("the total marks(internal+theory) is "+ total);
+ }
+ 
+ void calculategrandtotal() {
+ int total=0;
+ for(int k=1;k<3;k++) {
+ 
+total=total+Integer.parseInt(sub1[k])+Integer.parseInt(sub2[k])+Integer.par
+seInt(sub3[k])+Integer.parseInt(sub4[k])+Integer.parseInt(sub5[k])+Integer.parseIn
+t(sub6[k]);
+ 
+ }
+ System.out.println("the grand total of all the subjects is " + total);
+ }
+ 
+ void printinfo() {
+ System.out.println("roll no is "+ rollno);
+ System.out.println("name is "+ name);
+ System.out.println("stream is " + stream);
+ System.out.println("college is "+ college);
+ System.out.println(" Subject name :"+sub1[0]);
+ calculatetotal(sub1);
+ System.out.println(" Subject name :"+sub2[0]);
+ calculatetotal(sub2);
+ System.out.println(" Subject name :"+sub3[0]);
+ calculatetotal(sub3);
+ System.out.println(" Subject name :"+sub4[0]);
+ calculatetotal(sub4);
+ System.out.println(" Subject name :"+sub5[0]);
+ calculatetotal(sub5);
+ System.out.println(" Subject name :"+sub6[0]);
+ calculatetotal(sub6);
+ 
+ calculategrandtotal();
+ }
+ 
+public static void main(String[] args) {
+Student s1=new Student();
+ Student s2=new Student();
+System.out.println("----first student---");
+ s1.rollno=1;
+ s1.name="Rahul";
+ s1.stream="Arts";
+ s1.college="xyz";
+ s1.totakevalues();
+ System.out.println("details of first student");
+ s1.printinfo();
+ System.out.println("----second student----");
+ s2.rollno=7;
+ s2.name="Rik";
+ s2.stream="science";
+ s2.college="abc";
+ s2.totakevalues();
+ System.out.println("details of second student");
+ s2.printinfo();
+}
+}
