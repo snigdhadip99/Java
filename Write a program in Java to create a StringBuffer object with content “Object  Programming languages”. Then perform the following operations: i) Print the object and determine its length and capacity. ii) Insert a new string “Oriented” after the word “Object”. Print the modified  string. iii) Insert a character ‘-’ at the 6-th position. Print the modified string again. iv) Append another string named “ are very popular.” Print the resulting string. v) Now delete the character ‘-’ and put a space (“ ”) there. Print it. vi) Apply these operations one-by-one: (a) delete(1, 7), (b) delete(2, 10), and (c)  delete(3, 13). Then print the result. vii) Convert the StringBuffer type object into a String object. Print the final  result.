@@ -1,0 +1,44 @@
+public class StringB {
+ public static void main(String[] args)
+ {
+ StringBuffer sb=new StringBuffer("Object Programming languages");
+ 
+ System.out.println("\ni)Original String : "+sb+", Length : 
+"+sb.length()+"and Capacity : "+sb.capacity());
+ 
+ System.out.println("\nii) After inserting a new string “Oriented” after the word 
+“Object”.");
+ sb.insert(6, "Oriented");
+ System.out.println(sb);
+ 
+ System.out.println("\niii) After inserting a character ‘-’ at the 6-th position.");
+ sb.insert(6, "-");
+ System.out.println(sb);
+ 
+ System.out.println("\niv) After appending another string named “ are very 
+popular.”");
+ sb.append(" are very popular.");
+ System.out.println(sb);
+ 
+ System.out.println("\nv) After deleting the character ‘-’ and put a space (“ ”) 
+there.");
+ sb.replace(6, 7, " ");
+ System.out.println(sb);
+ 
+ System.out.println("\nvi) (a) After operation delete(1, 7).");
+ sb.delete(1, 7);
+ System.out.println(sb);
+ 
+ System.out.println("\nvi) (b) After operation delete(2, 10).");
+ sb.delete(2, 10);
+ System.out.println(sb);
+ 
+ System.out.println("\nvi) (c) After operation delete(3, 13).");
+ sb.delete(3, 13);
+ System.out.println(sb);
+ 
+ System.out.println("\nvii) After converting StringBuffer object to String.");
+ String str=sb.toString();
+ System.out.println(str);
+ }
+}
