@@ -1,0 +1,16 @@
+public class MultipleCatch {
+public static void main(String[] args) {
+int[] arr = {897, 56, 78, 90, 12, 123, 75};
+try {
+System.out.println(arr[9]);
+}
+catch(ArrayIndexOutOfBoundsException e) 
+ { 
+ System.out.println("ArrayIndexOutOfBounds Exception occurs"); 
+ } 
+catch(StringIndexOutOfBoundsException s)
+{
+System.out.println("StringIndexOutOfBounds Exception occurs");
+}
+}
+}
