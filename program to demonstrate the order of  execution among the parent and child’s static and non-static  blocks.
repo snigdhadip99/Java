@@ -1,0 +1,23 @@
+public class Parent {
+{
+System.out.println("non static block of Parent class");
+}
+static
+{
+System.out.println("static block of Parent class");
+}
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+ Parent p=new Parent();
+ Child c=new Child();
+}
+}
+class Child extends Parent{
+{
+System.out.println("non static block of Child class");
+}
+static
+{
+System.out.println("static block of Child class");
+}
+}
